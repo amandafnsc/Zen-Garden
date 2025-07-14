@@ -1,0 +1,413 @@
+/* css Zen Garden default style v1.02 */
+/* css released under Creative Commons License - http://creativecommons.org/licenses/by-nc-sa/1.0/  */
+
+/* This file based on 'Tranquille' by Dave Shea */
+/* You may use this file as a foundation for any new work, but you may find it easier to start from scratch. */
+/* Not all elements are defined in this file, so you'll most likely want to refer to the xhtml as well. */
+
+/* Your images should be linked as if the CSS file sits in the same folder as the images. ie. no paths. */
+
+@font-face {
+    font-family: Pangea; /* Fonte variável */
+    src: url(./fonts/FwTRIAL-PangeaVAR.ttf);
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+:root {
+  --ratio: 1.5; /* Perfect Fifth */
+  --p: 1rem;
+  --h3: calc(var(--p) * var(--ratio));
+  --h2: calc(var(--h3) * var(--ratio));
+  --h1: calc(var(--h2) * var(--ratio));
+  --title: calc(var(--h2) * 2 * var(--ratio));
+  --small: calc(var(--p) / var(--ratio));
+
+  /* Cores */
+  --light-blue: #B3BFE9;
+  --dark-blue: #3b468b;
+  --light-yellow: #E2E18F;
+  --light-cream: #eee7dc;
+}
+
+html {
+	margin: 0;
+	padding: 0;
+}
+
+body {
+  font-family: Pangea;
+  background-color: var(--light-blue);
+  color: var(--dark-blue);
+}
+
+p {
+	font-variation-settings: "wght" 450;
+	line-height: 1.4rem; 
+	/* Seguindo as instruções, eu parti da entrelinha com 120% do corpo do texto e aumentei para 140% pela contrução de colunas mais largas no site. */
+	word-spacing: 0.08rem; 
+	/* Aumentando o espaçamento entre palavras para melhorar a legibilidade em colunas mais largas. */
+	/* Escolha proposital de não justificar os textos pois ele poderia comprometer a legibilidade e a harmonia do texto dependendo da largura da página em textos tão densos. */
+}
+
+h1 {
+	font-size: var(--h1);
+}
+
+h2 {
+	font-size: var(--h2);
+}
+
+h3 {
+	font-size: var(--h3);
+}
+
+abbr {
+	text-decoration: none;
+}
+
+/* Header */
+.intro h1 {
+	font-size: var(--h3);
+	font-variation-settings: "wght" 500, "wdth" 100;
+	text-align: center;
+	padding: 16px;
+	border-bottom: 2px solid var(--dark-blue);
+	background-color: var(--light-blue);
+	position: fixed;
+	width: 100vw;
+	top: 0;
+}
+
+/* Ilustração animada do Hero */
+header h2::before {
+  content: "";
+  display: block;
+  width: 120px;
+  height: 120px;
+  margin: 0px auto 20px auto;
+  background-size: contain;
+  background-repeat: no-repeat;
+  animation: flowers 2s infinite;
+}
+
+/* Animação de flores */
+@keyframes flowers {
+	0%, 24% {
+		background-image: url("assets/flower1.svg");
+	}
+	25%, 49% {
+		background-image: url("assets/flower2.svg");
+	}
+	50%, 74% {
+		background-image: url("assets/flower3.svg");
+	}
+	75%, 99% {
+		background-image: url("assets/flower2.svg");
+	}
+	100% {
+		background-image: url("assets/flower1.svg");
+	}
+}
+
+/* Título do Hero */
+.intro h2 {
+	font-size: var(--title);
+	max-width: 14ch;
+	margin: 120px auto 40px;
+	padding: 0px 50px;
+	line-height: 1em;
+	text-align: center;
+	letter-spacing: -0.02em;
+	font-variation-settings: "wght" 600;
+}
+
+/* Estilo do CSS */
+.intro h2 abbr {
+	font-variation-settings: "ital" 0;
+	transition: font-variation-settings 0.5s ease-in-out;
+}
+
+.intro h2:hover abbr {
+	font-variation-settings: "ital" 1;
+}
+
+/* Descrção do Hero */
+.summary {
+	margin: 0 auto 100px;
+	max-width: 54ch;
+	text-align: center;
+}
+
+/* Espaçamento entre textos da descrição */
+.summary p:first-of-type {
+	margin-bottom: 0.8rem;
+}
+
+/* Links da descrição */
+.summary a {
+	font-variation-settings: "ital" 0, "wght" 600;
+	color: var(--dark-blue);
+	text-decoration: none;
+	padding: 4px 16px;
+	margin: 0 2px;
+	border-radius: 20px;
+	background-color: var(--light-yellow);
+	transition: all 0.5s;
+}
+
+.summary a:hover {
+	font-variation-settings: "ital" 1, "wght" 600;
+	background-color: var(--light-cream);
+	text-decoration: underline;
+}
+
+/* Estilo do corpo da página */
+#zen-supporting {
+	border-radius: 60px;
+	background-color: var(--light-cream);
+	padding: 80px 0px 60px;
+	max-width: 1000px;
+	margin: 0 auto 80px;
+}
+
+/* Seções do corpo da página */
+.preamble, .explanation, .participation, .benefits, .requirements {
+	display: flex;
+	flex-wrap: wrap;
+	margin: 0 auto 50px;
+	padding: 0 50px;
+	max-width: 900px;
+}
+
+.preamble h3, .explanation h3, .participation h3, .benefits h3, .requirements h3 {
+	width: 34%;
+	padding-right: 22px;
+}
+
+.preamble p, .explanation p, .participation p, .benefits p, .requirements p {
+	width: 66%; 
+	/* Por causa da escolha de estilo para as seções de texto da página e limitação do html, eu não tive tanto controle da quantidade de caracteres na largura da coluna, entretanto, mesmo assim, pareceu harmônico e confortável para leitura. */
+	margin-left: 34%;
+	margin-top: 1rem;
+}
+
+.preamble p:first-of-type, .explanation p:first-of-type, .participation p:first-of-type, .benefits p:first-of-type, .requirements p:first-of-type {
+	margin-left: 0%;
+	margin-top: 0rem;
+}
+
+.preamble a, .explanation a, .participation a, .benefits a, .requirements a {
+	font-variation-settings: "wght" 600;
+	color: var(--dark-blue);
+	text-decoration: none;
+	padding: 0 4px;
+	background-color: var(--light-yellow);
+	transition: all 0.5s;
+}
+
+.preamble a:hover, .explanation a:hover, .participation a:hover, .benefits a:hover, .requirements a:hover {
+	text-decoration: underline;
+	background-color: var(--light-cream);
+}
+
+/* footer */
+footer {
+	margin: 80px auto 0;
+	display: flex;
+	max-width: 900px;
+	justify-content: center;
+	gap: 10px;
+	padding: 0 50px;
+}
+
+footer a{
+	color: var(--dark-blue);
+	text-decoration: none;
+	font-variation-settings: "wght" 600;
+	border-radius: 20px;
+	background-color: var(--light-blue);
+	flex: 1;
+	text-align: center;
+	padding: 8px 0px;
+	transition: all 0.5s;
+}
+
+footer a:hover {
+	background-color: var(--light-yellow);
+	color: var(--dark-blue);
+}
+
+/* Outros designs */
+.design-selection {
+	margin: 0 auto 40px;
+	max-width: 900px;
+	padding: 0 50px;
+}
+
+.design-selection h3 {
+	margin-bottom: 30px;
+}
+
+.design-selection ul {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 20px;
+	padding: 0;
+	justify-content: center;
+}
+
+.design-selection li {
+	list-style: none;
+	width: 185px;
+	height: 180px;
+	border-radius: 10px;
+	background-color: var(--light-yellow);
+	padding: 10px 20px 20px 20px;
+	transition: all 0.5s;
+}
+
+.design-selection li:hover {
+	background-color: var(--light-cream);
+}
+
+.design-selection li a {
+	color: var(--dark-blue);
+	text-decoration: none;
+}
+
+.design-selection li a:first-of-type::before {
+	content: '1 ';
+	display: block;
+	font-size: var(--h1);
+	margin-bottom: 20px;
+}
+
+.design-selection li:nth-child(2) a:first-of-type::before {
+	content: '2 ';
+}
+
+.design-selection li:nth-child(3) a:first-of-type::before {
+	content: '3 ';
+}
+
+.design-selection li:nth-child(4) a:first-of-type::before {
+	content: '4 ';
+}
+
+.design-selection li:nth-child(5) a:first-of-type::before {
+	content: '5 ';
+}
+
+.design-selection li:nth-child(6) a:first-of-type::before {
+	content: '6 ';
+}
+
+.design-selection li:nth-child(7) a:first-of-type::before {
+	content: '7 ';
+}
+
+.design-selection li:nth-child(8) a:first-of-type::before {
+	content: '8 ';
+}
+
+.design-selection li a:first-of-type {
+	display: block;
+	font-variation-settings: "wght" 800;
+}
+
+/* Archives */
+.design-archives {
+	margin: 0 auto 100px;
+	max-width: 900px;
+	padding: 0 50px;
+}
+
+.design-archives h3 {
+	display: none;
+}
+
+.design-archives ul {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 10px;
+	justify-content: right;
+}
+
+.design-archives li {
+	list-style: none;
+}
+
+.design-archives li a {
+	color: var(--light-cream);
+	text-decoration: none;
+	font-variation-settings: "wght" 600;
+	border-radius: 20px;
+	background-color: var(--dark-blue);
+	padding: 8px 20px;
+	transition: all 0.3s;
+}
+
+.design-archives li a:hover {
+	background-color: var(--light-blue);
+	color: var(--dark-blue);
+	text-decoration: underline;
+}
+
+/* Resources */
+.zen-resources {
+	margin: 0 auto;
+	max-width: 1000px;
+	padding: 60px 0px 40px;
+	background-color: var(--light-cream);
+	border-radius: 60px 60px 0px 0px;
+}
+
+.zen-resources h3 {
+	margin-bottom: 20px;
+	text-align: center;
+	padding: 0 50px;
+}
+
+.zen-resources ul {
+	display: flex;
+	padding: 0;
+	justify-content: center;
+	max-width: 900px;
+	padding: 0 50px;
+	margin: auto;
+}
+
+.zen-resources li {
+	list-style: none;
+}
+
+.zen-resources li a {
+	text-decoration: none;
+	color: var(--dark-blue);
+	font-variation-settings: "wght" 600;
+}
+
+.zen-resources li:nth-child(2) a:first-of-type::before {
+	content: '•';
+	margin: 8px;
+}
+
+.zen-resources li:nth-child(3) a:first-of-type::before {
+	content: '•';
+	margin: 8px;
+}
+
+.zen-resources li:nth-child(4) a:first-of-type::before {
+	content: '•';
+	margin: 8px;
+}
+
+.zen-resources li:nth-child(5) a:first-of-type::before {
+	content: '•';
+	margin: 8px;
+}
