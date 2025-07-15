@@ -24,7 +24,7 @@
   --h3: calc(var(--p) * var(--ratio));
   --h2: calc(var(--h3) * var(--ratio));
   --h1: calc(var(--h2) * var(--ratio));
-  --title: calc(var(--h1) * var(--ratio));
+  --title: calc(var(--h2) * 2 * var(--ratio));
 
   /* Cores */
   --light-blue: #B3BFE9;
@@ -47,10 +47,10 @@ body {
 p {
 	font-variation-settings: "wght" 450;
 	line-height: 1.4rem; 
-	/* Seguindo as instruções, eu parti da entrelinha com 120% do corpo do texto e aumentei para 140% pela contrução de colunas mais largas no site. */
+	/* Seguindo as instruções, eu parti da entrelinha com 120% do corpo do texto e aumentei para 140% pela construção de colunas mais largas no site. */
 	word-spacing: 0.08rem; 
 	/* Aumentando o espaçamento entre palavras para melhorar a legibilidade em colunas mais largas. */
-	/* Escolha proposital de não justificar os textos pois ele poderia comprometer a legibilidade e a harmonia do texto dependendo da largura da página em textos tão densos. */
+	/* Escolha proposital de não justificar os textos pois poderia comprometer a legibilidade e a harmonia do texto dependendo da largura da página em textos tão densos. */
 }
 
 h1 {
