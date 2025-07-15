@@ -25,7 +25,6 @@
   --h2: calc(var(--h3) * var(--ratio));
   --h1: calc(var(--h2) * var(--ratio));
   --title: calc(var(--h2) * 2 * var(--ratio));
-  --small: calc(var(--p) / var(--ratio));
 
   /* Cores */
   --light-blue: #B3BFE9;
